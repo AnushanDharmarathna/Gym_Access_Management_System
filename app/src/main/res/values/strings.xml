@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Gym_Access_Management_System</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_in">Sign in</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
 </resources>
