@@ -8,6 +8,11 @@
     <string name="fullName">Full Name</string>
     <string name="phone">Phone Number</string>
 
+    <string name="phoneLbl">Phone Number :</string>
+    <string name="emailLbl">Email :</string>
+    <string name="packageLbl">Package :</string>
+    <string name="feeLbl">Total Payable :</string>
+
     <string name="welcome_to_messenger">Welcome to the Power Zone Gym</string>
     <string name="stay_in_touch">Login to your account or create an account</string>
     <string name="create_new_account">Create new account</string>
