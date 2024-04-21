@@ -2,6 +2,13 @@
     <string name="app_name">Gym_Access_Management_System</string>
     <string name="log_in">Log In</string>
     <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign Up</string>
     <string name="email">E-mail</string>
     <string name="password">Password</string>
+    <string name="fullName">Full Name</string>
+    <string name="phone">Phone Number</string>
+
+    <string name="welcome_to_messenger">Welcome to the Power Zone Gym</string>
+    <string name="stay_in_touch">Login to your account or create an account</string>
+    <string name="create_new_account">Create new account</string>
 </resources>
