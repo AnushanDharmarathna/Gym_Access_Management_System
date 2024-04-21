@@ -11,4 +11,11 @@
     <string name="welcome_to_messenger">Welcome to the Power Zone Gym</string>
     <string name="stay_in_touch">Login to your account or create an account</string>
     <string name="create_new_account">Create new account</string>
+
+    <string name="spinner_prompt">Select an option</string>
+    <string-array name="spinner_items">
+        <item>3 Months Plan</item>
+        <item>6 Months Plan</item>
+        <item>12 Months Plan</item>
+    </string-array>
 </resources>

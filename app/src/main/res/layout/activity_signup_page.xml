@@ -25,7 +25,7 @@
         android:id="@+id/imageView"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        app:srcCompat="@drawable/gym"
+        app:srcCompat="@drawable/add_user"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
@@ -76,10 +76,25 @@
         android:background="@drawable/rounded_border"
         android:spinnerMode="dropdown"
         android:imeOptions="actionNext"
-        android:textSize="20sp"
+        android:textSize="25sp"
+        android:prompt="@string/spinner_prompt"
+        android:entries="@array/spinner_items"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etPhone"/>
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/down_arrow"
+            android:layout_marginStart="260dp"
+            android:layout_marginTop="-30dp"
+            android:layout_marginEnd="-10dp"
+            app:layout_constraintEnd_toEndOf="@id/spinner1"
+            app:layout_constraintStart_toStartOf="@id/spinner1"
+            app:layout_constraintTop_toBottomOf="@id/spinner1"
+            app:tint="@color/colorPrimary" />
 
     <EditText
         android:id="@+id/etEmail"
