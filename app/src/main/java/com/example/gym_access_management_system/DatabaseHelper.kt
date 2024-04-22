@@ -12,6 +12,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         private const val SQL_CREATE_TABLE_USERS =
             "CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, fullName TEXT, phone INTEGER, selectedOption TEXT, email TEXT, password TEXT)"
+
+        private const val SQL_DELETE_ENTRIES = "DROP TABLE users"
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -19,5 +21,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+        db.execSQL(SQL_DELETE_ENTRIES)
+        onCreate(db)
     }
 }

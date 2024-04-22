@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 
 class SignupPage : AppCompatActivity() {
 
@@ -32,11 +33,15 @@ class SignupPage : AppCompatActivity() {
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
 
-            saveUserToDatabase(fullName, phone, selectedOption, email, password)
-
-            val intent = Intent(this, LoginPage::class.java)
-            startActivity(intent)
-            finish()
+            if (isEmailUnique(email)) {
+                saveUserToDatabase(fullName, phone, selectedOption, email, password)
+                Toast.makeText(this, "Sign-up successful!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, LoginPage::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "Email is already used!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -53,5 +58,27 @@ class SignupPage : AppCompatActivity() {
 
         db?.insert("users", null, values)
         db?.close()
+    }
+
+    private fun isEmailUnique(email: String): Boolean {
+        val db = databaseHelper.readableDatabase
+
+        val projection = arrayOf("email")
+        val selection = "email = ?"
+        val selectionArgs = arrayOf(email)
+
+        val cursor = db.query(
+            "users",
+            projection,
+            selection,
+            selectionArgs,
+            null,
+            null,
+            null
+        )
+
+        val isUnique = cursor.count == 0
+        cursor.close()
+        return isUnique
     }
 }
