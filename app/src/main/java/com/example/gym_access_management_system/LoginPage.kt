@@ -8,11 +8,7 @@ import android.widget.EditText
 import android.widget.TextView
 
 class LoginPage : AppCompatActivity() {
-
     private lateinit var databaseHelper: DatabaseHelper
-    private lateinit var etEmail: EditText
-    private lateinit var etPassword: EditText
-    private lateinit var tvLoginError: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,9 +16,9 @@ class LoginPage : AppCompatActivity() {
 
         databaseHelper = DatabaseHelper(this)
 
-        etEmail = findViewById(R.id.etEmail)
-        etPassword = findViewById(R.id.etPassword)
-        tvLoginError = findViewById(R.id.loginError)
+        val etEmail = findViewById<EditText>(R.id.etEmail)
+        val etPassword = findViewById<EditText>(R.id.etPassword)
+        val tvLoginError = findViewById<TextView>(R.id.loginError)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
 
         btnLogin.setOnClickListener {
@@ -31,6 +27,7 @@ class LoginPage : AppCompatActivity() {
 
             if (validateUser(email, password)) {
                 val intent = Intent(this, DetailsView::class.java)
+                intent.putExtra("loggedInUserEmail", email)
                 startActivity(intent)
                 finish()
             } else {

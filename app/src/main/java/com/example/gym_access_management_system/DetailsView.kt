@@ -25,7 +25,9 @@ class DetailsView : AppCompatActivity() {
         tvPackage = findViewById(R.id.packageView)
         tvFee = findViewById(R.id.feeView)
 
-        val user = getLoggedInUser()
+        val loggedInUserEmail = intent.getStringExtra("loggedInUserEmail")
+
+        val user = getLoggedInUser(loggedInUserEmail)
 
         if (user != null) {
             tvName.text = user.fullName
@@ -37,7 +39,7 @@ class DetailsView : AppCompatActivity() {
         }
     }
 
-    private fun getLoggedInUser(): User? {
+    private fun getLoggedInUser(email: String?): User? {
         val db = databaseHelper.readableDatabase
 
         val projection = arrayOf(
@@ -47,11 +49,14 @@ class DetailsView : AppCompatActivity() {
             "email"
         )
 
+        val selection = "email = ?"
+        val selectionArgs = arrayOf(email)
+
         val cursor = db.query(
             "users",
             projection,
-            null,
-            null,
+            selection,
+            selectionArgs,
             null,
             null,
             null
